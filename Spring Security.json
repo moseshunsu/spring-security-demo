@@ -1,0 +1,119 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "205cb989-5283-4fdf-81ad-bd2aa2e479ba",
+        "name": "SpringSecurity"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"userName\": \"higherAchievers\",\n  \"description\": \"Learn AWS\"\n}\n"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/csrf-token"
+            },
+            "id": "702057f1-8b2c-4d34-a5e7-fad9a54512c5",
+            "name": "CreateUserPostRequest",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Basic dXNlcjpkdW1teQ=="
+              },
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "X-CSRF-TOKEN",
+                "value": ""
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Exists",
+                "subject": "ResponseBody",
+                "path": "content",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"userName\": \"higherAchievers\",\n  \"description\": \"Learn AWS\"\n}\n"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/csrf-token"
+            },
+            "id": "305077c6-cbba-456b-b643-98e1535e7a30",
+            "name": "RetrieveCsrfToken",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Basic dXNlcjpkdW1teQ=="
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Exists",
+                "subject": "ResponseBody",
+                "path": "content",
+                "value": ""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
